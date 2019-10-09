@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org/DTD config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="com.longge.domain"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <!--配置事务类型-->
+            <transactionManager type="JDBC" />
+            <!--配置数据源（连接池）-->
+            <dataSource type="JNDI">
+                <property name="data_source" value="java:comp/env/jdbc/spring_learning"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--指定映射文件的位置，每个dao都有一个独立的映射文件-->
+    <mappers>
+        <mapper resource="com/longge/dao/UserDao.xml"/>
+    </mappers>
+</configuration>

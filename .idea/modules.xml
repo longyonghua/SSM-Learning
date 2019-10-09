@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning/mybatis-learning.iml" filepath="$PROJECT_DIR$/mybatis-learning/mybatis-learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning-annotation/mybatis-learning-annotation.iml" filepath="$PROJECT_DIR$/mybatis-learning-annotation/mybatis-learning-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning-jndi/mybatis-learning-jndi.iml" filepath="$PROJECT_DIR$/mybatis-learning-jndi/mybatis-learning-jndi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-learning-ioc/spring-learning-ioc.iml" filepath="$PROJECT_DIR$/spring-learning-ioc/spring-learning-ioc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_learning_aop/spring_learning_aop.iml" filepath="$PROJECT_DIR$/spring_learning_aop/spring_learning_aop.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/mybatis-learning-jndi" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/mybatis-learning/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-learning/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-learning-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-learning-jndi/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-learning-ioc/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_learning_aop/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="false" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

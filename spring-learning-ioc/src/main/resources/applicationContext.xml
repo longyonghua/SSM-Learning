@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="userDao" class="com.longge.dao.impl.UserDaoImpl">
+        <property name="runner" ref="runner"/> <!--注入QueryRunner-->
+    </bean>
+    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+        <constructor-arg name="ds" ref="dataSource"/> <!--注入数据源-->
+    </bean>
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring_learning"/>
+        <property name="user" value="root"/>
+        <property name="password" value="lyh+119988"/>
+    </bean>
+
+    <bean id="userServiceImpl" class="com.longge.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+    <!--<context:component-scan base-package="com.longge.service.impl"/>
+    <context:component-scan base-package="com.longge.dao.impl"/>-->
+
+</beans>

@@ -1,0 +1,6 @@
+# Project exclude paths
+/mybatis-learning/target/
+/mybatis-learning-annotation/target/
+/mybatis-learning-jndi/target/
+/spring-learning-ioc/target/
+/spring_learning_aop/target/

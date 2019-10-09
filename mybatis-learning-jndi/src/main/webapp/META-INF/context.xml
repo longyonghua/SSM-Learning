@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Context>
+    <!--
+    <Resource name="jdbc/spring-learning"   数据源名称
+    type="javax.sql.DataSource"             数据源类型
+    auth="Container"                        数据源提供者
+    maxActive="20"                          最大活动数
+    maxWait="10000"                         最大等待时间
+    maxIdld="5"                             最大空闲数
+    username="root"
+    password="lyh_119988"
+    driverClassName="com.mysql.cj.jdbc.Driver"
+    url="jdbc:mysql://localhost:3306/spring_learning"
+    />
+    -->
+    <Resource name="jdbc/spring_learning"
+              type="javax.sql.DataSource"
+              auth="Container"
+              maxActive="20"
+              maxWait="10000"
+              maxIdld="5"
+              username="root"
+              password="lyh+119988"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/spring_learning"
+    />
+</Context>
