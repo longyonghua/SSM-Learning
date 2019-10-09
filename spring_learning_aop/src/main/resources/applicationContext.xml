@@ -19,4 +19,7 @@
         <property name="password" value="lyh+119988"/>
     </bean>
 
+    <bean id="beanFactory" class="com.longge.factory.BeanFactory"/>
+    <bean id="proxyAccountService" factory-bean="beanFactory" factory-method="getAccountService"/>
+
 </beans>

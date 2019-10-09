@@ -3,7 +3,6 @@ package com.longge.service.impl;
 import com.longge.dao.AccountDao;
 import com.longge.domain.Account;
 import com.longge.service.AccountService;
-import com.longge.util.TransactionManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +17,6 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService {
     @Autowired
     private AccountDao accountDao;
-    @Autowired
-    private TransactionManager txManager;
 
     @Override
     public List<Account> findAllAccount() {
@@ -38,59 +35,27 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void saveAccount(Account account) {
-        try {
-            txManager.beginTransaction();
-            accountDao.saveAccount(account);
-            txManager.commit();
-        }catch (Exception e){
-            txManager.rollback();
-        }finally {
-            txManager.release();
-        }
+        accountDao.saveAccount(account);
     }
 
     @Override
     public void upadateAccount(Account account) {
-        try {
-            txManager.beginTransaction();
-            accountDao.updateAccount(account);
-            txManager.commit();
-        }catch (Exception e){
-            txManager.rollback();
-        }finally {
-            txManager.release();
-        }
+        accountDao.updateAccount(account);
     }
 
     @Override
     public void deleteAccount(Integer id) {
-        try {
-            txManager.beginTransaction();
-            accountDao.deleteAccount(id);
-            txManager.commit();
-        }catch (Exception e){
-            txManager.rollback();
-        }finally {
-            txManager.release();
-        }
+        accountDao.deleteAccount(id);
     }
 
     @Override
     public void transfer(String sourceName, String targetName, Double money) {
-        try {
-            txManager.beginTransaction();
-            Account source = accountDao.findAccountByName(sourceName);
-            Account target = accountDao.findAccountByName(targetName);
-            source.setMoney(source.getMoney()-money);
-            target.setMoney(target.getMoney()+money);
-            accountDao.updateAccount(source);
-            int i=1/0;
-            accountDao.updateAccount(target);
-            txManager.commit();
-        }catch (Exception e){
-            txManager.rollback();
-        }finally {
-            txManager.release();
-        }
+        Account source = accountDao.findAccountByName(sourceName);
+        Account target = accountDao.findAccountByName(targetName);
+        source.setMoney(source.getMoney()-money);
+        target.setMoney(target.getMoney()+money);
+        accountDao.updateAccount(source);
+        //int i=1/0;
+        accountDao.updateAccount(target);
     }
 }

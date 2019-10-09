@@ -2,9 +2,11 @@ package com.longge.test;
 
 import com.longge.domain.Account;
 import com.longge.service.AccountService;
+import net.sf.cglib.proxy.Enhancer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -16,6 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
 public class UserServiceTest {
     @Autowired
+    @Qualifier("proxyAccountService")
     private AccountService service;
 
     @Test
@@ -29,5 +32,12 @@ public class UserServiceTest {
     @Test
     public void testTransfer(){
         service.transfer("longge1","longge2",100.00);
+    }
+
+    @Test
+    public void testProxy(){
+        Enhancer enhancer = new Enhancer();
+        enhancer.create();
+        //Enhancer.create();
     }
 }
