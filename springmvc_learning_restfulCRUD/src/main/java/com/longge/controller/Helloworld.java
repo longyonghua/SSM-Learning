@@ -1,6 +1,8 @@
 package com.longge.controller;
 
 import com.longge.entities.User;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -155,6 +157,27 @@ public class Helloworld {
         filename = uuid + "_" +filename; //使用UUID构造一个唯一的文件名
         //完成文件上传
         upload.transferTo(new File(path,filename));
+
+        return "success";
+    }
+
+    @RequestMapping("/testUpload3")
+    public String testUpload3(MultipartFile upload) throws Exception{
+        //定义上传文件服务器路径
+        String path = "http://localhost:9090/fileuploadserver/uploads/";
+
+        //获得文件名称
+        String filename = upload.getOriginalFilename();
+        String uuid = UUID.randomUUID().toString().replace("-","");
+        filename = uuid + "_" +filename; //使用UUID构造一个唯一的文件名
+
+        //跨服务器上传文件
+        //1.创建客户端对象
+        Client client = Client.create();
+        //2.与图片服务器进行连接
+        WebResource webResource = client.resource(path+filename); //若path后面没有"/"，则这里需要写成：path+"/"+filename
+        //3.上传文件
+        webResource.put(upload.getBytes());
 
         return "success";
     }

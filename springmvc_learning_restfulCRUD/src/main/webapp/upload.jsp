@@ -16,5 +16,11 @@
     选择文件：<input type="file" name="upload"/><br/>
     <input type="submit" value="上传"/>
 </form>
+
+<h2>跨服务器文件上传</h2>
+<form action="springmvc/testUpload3" enctype="multipart/form-data" method="post">
+    选择文件：<input type="file" name="upload"/><br/>
+    <input type="submit" value="上传"/>
+</form>
 </body>
 </html>
