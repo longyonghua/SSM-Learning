@@ -25,6 +25,25 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--配置异常解析器-->
+    <bean class="com.longge.exception.MyExceptionResolver"/>
+
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--要拦截的方法-->
+            <mvc:mapping path="/springmvc/*"/> <!-- /**、/springmvc/*、/springmvc/testInterceptor -->
+            <!--不要拦截的方法-->
+            <!--<mvc:exclude-mapping path=""/>-->
+            <!--配置拦截器对象-->
+            <bean class="com.longge.interceptor.MyInterceptor1"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.longge.interceptor.MyInterceptor2"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!--告诉DispatcherServlet，不拦截哪些静态资源-->
     <mvc:resources mapping="/js/" location="/js/**"/>
 

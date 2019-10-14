@@ -1,6 +1,7 @@
 package com.longge.controller;
 
 import com.longge.entities.User;
+import com.longge.exception.MyException;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import org.apache.commons.fileupload.FileItem;
@@ -179,6 +180,24 @@ public class Helloworld {
         //3.上传文件
         webResource.put(upload.getBytes());
 
+        return "success";
+    }
+
+    @RequestMapping("/testInterceptor")
+    public String testInterceptor(){
+        System.out.println("testInterceptor执行..");
+        return "success";
+    }
+
+    @RequestMapping("/testException")
+    public String testException() throws MyException{
+        System.out.println("testExcption执行");
+        try {
+            int i = 10/0;
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new MyException("用户查询出错..");
+        }
         return "success";
     }
 
